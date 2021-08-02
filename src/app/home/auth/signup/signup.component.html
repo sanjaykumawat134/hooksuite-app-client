@@ -1,0 +1,98 @@
+<!-- signup form goes here -->
+<div class="container">
+  <div class="banner_heading">
+    <div class="mat-display-2">Register here</div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-">
+      <div class="form">
+        <!-- form goes here -->
+        <form action="">
+          <div fxLayout="column">
+            <mat-form-field appearance="outline">
+              <mat-label> username </mat-label>
+              <input matInput placeholder="Email" required />
+              <mat-hint>johndoe </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label> Email </mat-label>
+              <input matInput placeholder="Email" required />
+              <mat-hint>example123@gmail.com </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label> password </mat-label>
+              <input type="password" matInput placeholder="password" required />
+              <mat-hint>john!23</mat-hint>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">
+              Sign up
+            </button>
+            <div class="text-center">Or Already have account !</div>
+            <button mat-raised-button color="accent">
+              <a routerLink="/login" class="signin_a"> Sign in</a>
+            </button>
+          </div>
+        </form>
+        <mat-expansion-panel hideToggle role="button">
+          <mat-expansion-panel-header>
+            <mat-panel-title fxLayoutAlign="center center">
+              <div class="text-center">Try others</div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            Other ways to register
+          </mat-panel-description>
+          <div class="singin_btn_other">
+            <button mat-raised-button>
+              <img
+                src="assets/logos/Google__G__Logo.png"
+                alt=""
+                class="logo img-fluid"
+              />
+              Register with google
+            </button>
+          </div>
+          <div class="singin_btn_other">
+            <button mat-raised-button>
+              <img
+                src="assets/logos/fb-logo.png"
+                alt=""
+                class="logo img-fluid"
+              />Register with Facebook
+            </button>
+          </div>
+          <div class="singin_btn_other">
+            <button mat-raised-button>
+              <img
+                src="assets/logos/twitter-logo.png"
+                alt=""
+                class="logo img-fluid"
+                style="width: 35px; height: auto"
+              />Register with Twitter
+            </button>
+          </div>
+          <div class="singin_btn_other">
+            <button mat-raised-button>
+              <img
+                src="assets/logos/linkedin.png"
+                alt=""
+                class="logo img-fluid"
+                style="width: 35px; height: auto"
+              />Register with LinkedIn
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="banner_img">
+        <!-- image goes here -->
+        <img
+          src="assets/images/undraw_New_entries_re_cffr.png"
+          alt="login-img"
+          class="img-fluid login_banner"
+        />
+      </div>
+    </div>
+  </div>
+</div>

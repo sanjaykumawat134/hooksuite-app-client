@@ -1,0 +1,7 @@
+.row,
+.footer_col_1 {
+  max-width: 100% !important;
+}
+.footer_col_1 {
+  justify-content: space-evenly !important;
+}

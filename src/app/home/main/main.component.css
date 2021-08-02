@@ -1,0 +1,23 @@
+/* .banner_img {
+  max-width: 700px;
+  min-width: 400px;
+} */
+.mat-card {
+  outline: none;
+  border: none;
+}
+.row {
+  margin: 2rem;
+}
+
+/* img {
+  width: 500px;
+  height: 500px;
+}
+
+@media (max-width: 767px) {
+  img {
+    width: 200px;
+    height: 200px;
+  }
+} */

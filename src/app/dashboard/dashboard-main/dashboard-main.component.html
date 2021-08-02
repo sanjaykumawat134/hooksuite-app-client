@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [ngClass]="{ hidden: (isHandset$ | async) === false }"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a href="" mat-button> <mat-icon>add</mat-icon>Add social network</a>
+      <a href="" mat-button><mat-icon>forum</mat-icon>Streams</a>
+      <a href="" mat-button
+        ><mat-icon>mobile_screen_share </mat-icon> Compose</a
+      >
+      <a href="" mat-button><mat-icon>event</mat-icon>Publisher</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>hooksuite-app</span>
+      <ng-template [ngIf]="(isHandset$ | async) === false">
+        <span class="flexer"></span>
+        <a href="" mat-button> <mat-icon>add</mat-icon>Add social network</a>
+        <a href="" mat-button><mat-icon>forum</mat-icon>Streams</a>
+        <a href="" mat-button
+          ><mat-icon>mobile_screen_share </mat-icon> Compose</a
+        >
+        <a href="" mat-button><mat-icon>event</mat-icon>Publisher</a>
+      </ng-template>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,46 @@
+<mat-toolbar>
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="nav" *ngIf="!deviceXs">
+      <a
+        mat-icon
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <img src="assets/images/hooksuite-logo.png" alt="" />
+      </a>
+    </div>
+    <div class="nav nav_sm" *ngIf="deviceXs">
+      <a
+        mat-icon
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <img src="assets/images/hooksuite-logo.png" alt="" />
+      </a>
+    </div>
+    <div class="heading" *ngIf="!deviceXs">
+      <div display-4>Welcome to hootsuite</div>
+    </div>
+    <div class="nav-left" fxLayoutAlign="center center" *ngIf="!deviceXs">
+      <button mat-raised-button color="accent" (click)="onNavigateToLogin()">
+        Login
+      </button>
+      <button mat-raised-button color="warn" (click)="onNavigateToSignUp()">
+        Register
+      </button>
+    </div>
+    <div *ngIf="deviceXs" fxLayoutAlign="center center">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onNavigateToLogin()">
+          <mat-icon>login</mat-icon>Login
+        </button>
+        <button mat-menu-item (click)="onNavigateToSignUp()">
+          <mat-icon>account_circle</mat-icon>Register
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
