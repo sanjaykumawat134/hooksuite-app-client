@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/header/header.component';
@@ -15,7 +14,6 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './home/auth/login/login.component';
 import { SignupComponent } from './home/auth/signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,6 +27,9 @@ import { PublisherComponent } from './dashboard/dashboard-main/publisher/publish
 import { StreamComponent } from './dashboard/dashboard-main/stream/stream.component';
 import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.component';
 import { AddSocialDialogComponent } from './dashboard/dashboard-main/social/add/add.component';
+import { GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { AuthGaurdService } from './services/AuthGuard.service';
+import { UserService } from './services/users.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,6 @@ import { AddSocialDialogComponent } from './dashboard/dashboard-main/social/add/
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-
     DashboardMainComponent,
     SocialComponent,
     PublisherComponent,
@@ -63,8 +63,26 @@ import { AddSocialDialogComponent } from './dashboard/dashboard-main/social/add/
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true, //keeps the user signed in
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '211445314206-2n44k7oipnanbape9vgg7on79u806ogg.apps.googleusercontent.com'
+            ), // your client id
+          },
+        ],
+      },
+    },
+    AuthGaurdService,
+    UserService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

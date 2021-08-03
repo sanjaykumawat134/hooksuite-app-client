@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { AddSocialDialogComponent } from './social/add/add.component';
+import { UserService } from 'src/app/services/users.service';
+import { SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-dashboard-main',
@@ -20,7 +22,9 @@ export class DashboardMainComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public userService: UserService,
+    public socialAuthServive: SocialAuthService
   ) {}
 
   openAddSocialDialog() {
@@ -28,5 +32,9 @@ export class DashboardMainComponent {
       width: '500px',
       height: '500px',
     });
+  }
+
+  logout() {
+    this.userService.logoutfromGoogle();
   }
 }

@@ -54,7 +54,7 @@
                 password cannot contain string password
               </p>
               <p *ngIf="password.errors?.minlength">
-                Name must be at least 6 characters long.
+                password must be at least 6 characters long.
               </p>
             </div>
 
@@ -77,7 +77,7 @@
           </mat-expansion-panel-header>
           <mat-panel-description> Other ways to sign in </mat-panel-description>
           <div class="singin_btn_other">
-            <button mat-raised-button>
+            <button mat-raised-button (click)="onLoginWithGoogle()">
               <img
                 src="assets/logos/Google__G__Logo.png"
                 alt=""

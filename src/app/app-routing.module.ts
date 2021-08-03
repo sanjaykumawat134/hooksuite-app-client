@@ -12,6 +12,7 @@ import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.com
 import { PublisherComponent } from './dashboard/dashboard-main/publisher/publisher.component';
 
 import { StreamComponent } from './dashboard/dashboard-main/stream/stream.component';
+import { AuthGaurdService } from './services/AuthGuard.service';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardMainComponent, // with router link tag
+    canActivate: [AuthGaurdService],
     children: [
       {
         path: 'addsocial',

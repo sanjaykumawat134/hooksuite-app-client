@@ -22,6 +22,13 @@
       <a [routerLink]="['publisher']" href="" mat-button
         ><mat-icon>event</mat-icon>Publisher</a
       >
+      <div *ngIf="socialAuthServive.authState | async as socialUser">
+        <p>Hello, {{ socialUser.name }}!</p>
+        <br />
+        <p>Your email: {{ socialUser.email }}</p>
+        <br />
+        <button mat-raised-button (click)="logout()">Logout</button>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -50,6 +57,13 @@
         <a [routerLink]="['publisher']" mat-button
           ><mat-icon>event</mat-icon>Publisher</a
         >
+        <div *ngIf="socialAuthServive.authState | async as socialUser">
+          <p>Hello, {{ socialUser.name }}!</p>
+          <br />
+          <p>Your email: {{ socialUser.email }}</p>
+          <br />
+          <button mat-raised-button (click)="logout()">Logout</button>
+        </div>
       </ng-template>
     </mat-toolbar>
     <!-- Add Content Here -->
