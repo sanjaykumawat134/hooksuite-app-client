@@ -6,19 +6,64 @@
     <div class="col-md-6 col-sm-12">
       <div class="form">
         <!-- form goes here -->
-        <form action="">
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.value)">
           <div fxLayout="column">
             <mat-form-field appearance="outline">
               <mat-label> Email </mat-label>
-              <input matInput placeholder="Email" required />
+              <input
+                matInput
+                placeholder="Email"
+                ngModel
+                name="email"
+                #email="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required
+              />
               <mat-hint>example123@gmail.com </mat-hint>
             </mat-form-field>
+
+            <div
+              *ngIf="email.touched && (email.dirty || email.touched)"
+              style="margin-left: 10px"
+            >
+              <p *ngIf="email.errors?.required">Email is a required field!</p>
+              <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
+            </div>
+
             <mat-form-field appearance="outline">
               <mat-label> password </mat-label>
-              <input type="password" matInput placeholder="password" required />
+              <input
+                type="password"
+                matInput
+                placeholder="password"
+                name="password"
+                required
+                ngModel
+                #password="ngModel"
+                appForbiddenName="password"
+                minlength="6"
+              />
               <mat-hint>john!23</mat-hint>
             </mat-form-field>
-            <button mat-raised-button color="primary" type="submit">
+
+            <div
+              *ngIf="password.touched && (password.dirty || password.touched)"
+            >
+              <p *ngIf="password.errors?.required">password required</p>
+              <p *ngIf="password.errors?.forbiddenName">
+                password cannot contain string password
+              </p>
+              <p *ngIf="password.errors?.minlength">
+                Name must be at least 6 characters long.
+              </p>
+            </div>
+
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="loginForm.form.invalid"
+            >
               Signin
             </button>
             <button mat-raised-button color="accent">Sign up</button>

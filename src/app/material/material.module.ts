@@ -16,6 +16,10 @@ import {
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 //import use materails
 const materialModules = [
   MatSliderModule,
@@ -30,6 +34,9 @@ const materialModules = [
   MatInputModule,
   MatExpansionModule,
   MatSidenavModule,
+  MatDialogModule,
+  MatSelectModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({

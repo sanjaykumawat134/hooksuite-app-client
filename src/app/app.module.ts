@@ -16,7 +16,7 @@ import { LoginComponent } from './home/auth/login/login.component';
 import { SignupComponent } from './home/auth/signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +28,7 @@ import { SocialComponent } from './dashboard/dashboard-main/social/social.compon
 import { PublisherComponent } from './dashboard/dashboard-main/publisher/publisher.component';
 import { StreamComponent } from './dashboard/dashboard-main/stream/stream.component';
 import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.component';
+import { AddSocialDialogComponent } from './dashboard/dashboard-main/social/add/add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.com
     PublisherComponent,
     StreamComponent,
     ComposeComponent,
+    AddSocialDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.com
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,

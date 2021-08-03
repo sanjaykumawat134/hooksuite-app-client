@@ -1,0 +1,11 @@
+.fb-logo,
+.twitter-logo,
+.linkedin-logo {
+  width: 50px;
+  margin: 0 10px;
+}
+
+.fb-logo {
+  width: 40px;
+  margin-left: 25px;
+}

@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Hi ! Add your favorite social media here</h1>
+<div mat-dialog-content>
+  <section class="example-section" [formGroup]="socialListGroup">
+    <div class="p-2">
+      <mat-checkbox formControlName="facebook"></mat-checkbox>
+      <img src="assets/logos/fb-logo.png" alt="fb-logo" class="fb-logo" />
+      facebook
+    </div>
+
+    <div class="p-2">
+      <mat-checkbox formControlName="twitter">
+        <img
+          src="assets/logos/twitter-logo.png"
+          alt="twitter-logo"
+          class="twitter-logo"
+        />
+        twitter
+      </mat-checkbox>
+    </div>
+
+    <div class="p-2">
+      <mat-checkbox formControlName="linkedIn">
+        <img
+          src="assets/logos/linkedin.png"
+          alt="linkedin-logo"
+          class="linkedin-logo"
+        />
+        linkedIn</mat-checkbox
+      >
+    </div>
+  </section>
+
+  <section class="example-section" [formGroup]="socialListGroup">
+    <h4>You chose:</h4>
+    {{ socialListGroup.value | json }}
+  </section>
+</div>

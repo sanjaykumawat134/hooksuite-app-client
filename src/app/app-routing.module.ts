@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './home/auth/login/login.component';
-import { MainComponent } from './home/main/main.component';
 import { SignupComponent } from './home/auth/signup/signup.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { DashboardMainComponent } from './dashboard/dashboard-main/dashboard-main.component';
+import { SocialComponent } from './dashboard/dashboard-main/social/social.component';
+import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.component';
+import { PublisherComponent } from './dashboard/dashboard-main/publisher/publisher.component';
+
+import { StreamComponent } from './dashboard/dashboard-main/stream/stream.component';
 
 const routes: Routes = [
   {
@@ -23,17 +26,26 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
-  // {
-  //   path: 'dashboard',
-  //   component: DashboardComponent,
-  // },
+
   {
     path: 'dashboard',
     component: DashboardMainComponent, // with router link tag
     children: [
       {
-        path: '',
-        component: DashboardComponent, //childerens to be render
+        path: 'addsocial',
+        component: SocialComponent, //childerens to be render
+      },
+      {
+        path: 'compose',
+        component: ComposeComponent,
+      },
+      {
+        path: 'publisher',
+        component: PublisherComponent,
+      },
+      {
+        path: 'stream',
+        component: StreamComponent,
       },
     ],
   },

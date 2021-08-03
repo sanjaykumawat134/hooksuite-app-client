@@ -9,13 +9,19 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a href="" mat-button> <mat-icon>add</mat-icon>Add social network</a>
-      <a href="" mat-button><mat-icon>forum</mat-icon>Streams</a>
-      <a href="" mat-button
+    <mat-nav-list class="nav-item">
+      <a [routerLink]="" (click)="openAddSocialDialog()" mat-button>
+        <mat-icon>add</mat-icon>Add social network</a
+      >
+      <a [routerLink]="['stream']" mat-button
+        ><mat-icon>forum</mat-icon>Streams</a
+      >
+      <a [routerLink]="['compose']" mat-button
         ><mat-icon>mobile_screen_share </mat-icon> Compose</a
       >
-      <a href="" mat-button><mat-icon>event</mat-icon>Publisher</a>
+      <a [routerLink]="['publisher']" href="" mat-button
+        ><mat-icon>event</mat-icon>Publisher</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -32,15 +38,22 @@
       <span>hooksuite-app</span>
       <ng-template [ngIf]="(isHandset$ | async) === false">
         <span class="flexer"></span>
-        <a href="" mat-button> <mat-icon>add</mat-icon>Add social network</a>
-        <a href="" mat-button><mat-icon>forum</mat-icon>Streams</a>
-        <a href="" mat-button
+        <a [routerLink]="" (click)="openAddSocialDialog()" mat-button>
+          <mat-icon>add</mat-icon>Add social network</a
+        >
+        <a [routerLink]="['stream']" mat-button
+          ><mat-icon>forum</mat-icon>Streams</a
+        >
+        <a [routerLink]="['compose']" mat-button
           ><mat-icon>mobile_screen_share </mat-icon> Compose</a
         >
-        <a href="" mat-button><mat-icon>event</mat-icon>Publisher</a>
+        <a [routerLink]="['publisher']" mat-button
+          ><mat-icon>event</mat-icon>Publisher</a
+        >
       </ng-template>
     </mat-toolbar>
     <!-- Add Content Here -->
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

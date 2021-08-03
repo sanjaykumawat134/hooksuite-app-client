@@ -21,3 +21,10 @@
 .hidden {
   display: none;
 }
+.nav-item > a {
+  padding: 10px;
+}
+.nav-item > a:hover {
+  background-color: gray !important;
+  color: white;
+}
