@@ -24,9 +24,6 @@
       >
       <div *ngIf="socialAuthServive.authState | async as socialUser">
         <p>Hello, {{ socialUser.name }}!</p>
-        <br />
-        <p>Your email: {{ socialUser.email }}</p>
-        <br />
         <button mat-raised-button (click)="logout()">Logout</button>
       </div>
     </mat-nav-list>
@@ -57,11 +54,15 @@
         <a [routerLink]="['publisher']" mat-button
           ><mat-icon>event</mat-icon>Publisher</a
         >
-        <div *ngIf="socialAuthServive.authState | async as socialUser">
-          <p>Hello, {{ socialUser.name }}!</p>
-          <br />
-          <p>Your email: {{ socialUser.email }}</p>
-          <br />
+        <div
+          *ngIf="socialAuthServive.authState | async as socialUser"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <div>
+            <img src="{{ socialUser.photoUrl }}" alt="" class="g-profileimg" />
+          </div>
+          <div>{{ socialUser.name }}!</div>
           <button mat-raised-button (click)="logout()">Logout</button>
         </div>
       </ng-template>

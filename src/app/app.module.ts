@@ -27,7 +27,11 @@ import { PublisherComponent } from './dashboard/dashboard-main/publisher/publish
 import { StreamComponent } from './dashboard/dashboard-main/stream/stream.component';
 import { ComposeComponent } from './dashboard/dashboard-main/compose/compose.component';
 import { AddSocialDialogComponent } from './dashboard/dashboard-main/social/add/add.component';
-import { GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialLoginModule,
+} from 'angularx-social-login';
 import { AuthGaurdService } from './services/AuthGuard.service';
 import { UserService } from './services/users.service';
 @NgModule({
@@ -77,9 +81,14 @@ import { UserService } from './services/users.service';
               '211445314206-2n44k7oipnanbape9vgg7on79u806ogg.apps.googleusercontent.com'
             ), // your client id
           },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('3736409676465327'),
+          },
         ],
       },
     },
+
     AuthGaurdService,
     UserService,
   ],

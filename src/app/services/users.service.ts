@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {
+  FacebookLoginProvider,
   GoogleLoginProvider,
   SocialAuthService,
   SocialUser,
@@ -32,5 +33,14 @@ export class UserService {
     this.socialAuthService.signOut().then((value) => {
       this.router.navigate(['login']);
     });
+  }
+  logInWithFacebook() {
+    this.socialAuthService
+      .signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then((value) => {
+        console.log(value);
+        this.router.navigate(['dashboard']);
+      })
+      .catch((error) => console.log(error));
   }
 }
