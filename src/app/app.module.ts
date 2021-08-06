@@ -34,6 +34,7 @@ import {
 } from 'angularx-social-login';
 import { AuthGaurdService } from './services/AuthGuard.service';
 import { UserService } from './services/users.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { UserService } from './services/users.service';
     MatIconModule,
     MatListModule,
     SocialLoginModule,
+    HttpClientModule,
   ],
   providers: [
     {

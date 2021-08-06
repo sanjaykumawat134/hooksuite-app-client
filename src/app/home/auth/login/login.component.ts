@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,9 +9,15 @@ import { UserService } from 'src/app/services/users.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private userService: UserService) {}
-
-  ngOnInit(): void {}
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute
+  ) {}
+  linkedInToken = '';
+  ngOnInit(): void {
+    this.linkedInToken = this.route.snapshot.queryParams['code'];
+    console.log(this.linkedInToken);
+  }
   onLogin(frmValue: NgForm) {
     console.log(frmValue);
   }
@@ -23,5 +30,8 @@ export class LoginComponent implements OnInit {
   }
   onLoginWithFacebook() {
     this.userService.logInWithFacebook();
+  }
+  onLoginWithLinkedIn() {
+    this.userService.logInWithLinkedIn();
   }
 }

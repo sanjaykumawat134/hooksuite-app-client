@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -10,9 +11,15 @@ import {
   providedIn: 'root',
 })
 export class UserService {
+  linkedInCredentials = {
+    clientId: '86ha305jbm3ucp',
+    redirectUrl: 'https://localhost:4200/login',
+    scope: 'r_liteprofile%20r_emailaddress',
+  };
   constructor(
     private router: Router,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService,
+    private http: HttpClient
   ) {}
 
   loginWithGoogle() {
@@ -42,5 +49,10 @@ export class UserService {
         this.router.navigate(['dashboard']);
       })
       .catch((error) => console.log(error));
+  }
+
+  logInWithLinkedIn() {
+    window.location.href =
+      'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86ha305jbm3ucp&scope=r_liteprofile+w_member_social+r_emailaddress&state=123456&redirect_uri=https://localhost:4200/dashboard';
   }
 }

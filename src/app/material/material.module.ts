@@ -19,7 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //import use materails
 const materialModules = [
   MatSliderModule,
@@ -37,6 +37,7 @@ const materialModules = [
   MatDialogModule,
   MatSelectModule,
   MatCheckboxModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({

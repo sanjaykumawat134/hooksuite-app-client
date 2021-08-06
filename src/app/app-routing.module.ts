@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardMainComponent, // with router link tag
-    canActivate: [AuthGaurdService],
+    // canActivate: [AuthGaurdService],
     children: [
       {
         path: 'addsocial',
