@@ -35,6 +35,8 @@ import {
 import { AuthGaurdService } from './services/AuthGuard.service';
 import { UserService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LinkedInAcessService } from './services/linkedInacess.service';
+import { ProfileComponent } from './dashboard/dashboard-main/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     StreamComponent,
     ComposeComponent,
     AddSocialDialogComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +96,7 @@ import { HttpClientModule } from '@angular/common/http';
 
     AuthGaurdService,
     UserService,
+    LinkedInAcessService,
   ],
   bootstrap: [AppComponent],
 })

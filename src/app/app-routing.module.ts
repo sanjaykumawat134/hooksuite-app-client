@@ -13,6 +13,8 @@ import { PublisherComponent } from './dashboard/dashboard-main/publisher/publish
 
 import { StreamComponent } from './dashboard/dashboard-main/stream/stream.component';
 import { AuthGaurdService } from './services/AuthGuard.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './dashboard/dashboard-main/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -27,7 +29,10 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
-
+  {
+    path: 'linkedInLogin',
+    component: DashboardComponent,
+  },
   {
     path: 'dashboard',
     component: DashboardMainComponent, // with router link tag
@@ -48,6 +53,10 @@ const routes: Routes = [
       {
         path: 'stream',
         component: StreamComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
     ],
   },

@@ -21,7 +21,7 @@ export class DashboardMainComponent implements OnInit {
       map((result) => result.matches),
       shareReplay()
     );
-
+  User: any;
   constructor(
     private breakpointObserver: BreakpointObserver,
     public dialog: MatDialog,
@@ -52,5 +52,12 @@ export class DashboardMainComponent implements OnInit {
         });
       }
     });
+    this.User = this.userService._linkedInUser;
+    console.log(this.User);
+
+    // const data = this.userService.linkedInProfile();
+    // console.log(data);
+    const token = localStorage.getItem('authToken');
+    console.log(token);
   }
 }
