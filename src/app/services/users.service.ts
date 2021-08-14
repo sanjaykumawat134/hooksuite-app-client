@@ -1,4 +1,6 @@
 import { HttpClient } from '@angular/common/http';
+import { OnDestroy } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -11,14 +13,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserService implements OnInit {
   _linkedInUser: any;
+
   constructor(
     private router: Router,
     private socialAuthService: SocialAuthService,
     private http: HttpClient
   ) {}
-
+  ngOnInit() {}
   loginWithGoogle() {
     this.socialAuthService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
@@ -53,11 +56,12 @@ export class UserService {
       'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86ha305jbm3ucp&scope=r_liteprofile+w_member_social+r_emailaddress&state=123456&redirect_uri=http://localhost:4200/linkedInLogin';
   }
 
-  linkedInProfile(auth_token: any): Observable<any> {
+  linkedInProfile(): Observable<any> {
+    const authtoken = localStorage.getItem('authToken');
     return this.http.get('/api/linkedIn/profile', {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${auth_token}`,
+        Authorization: `Bearer ${authtoken}`,
       },
     });
   }
@@ -74,5 +78,37 @@ export class UserService {
   }
   get linkedInUser() {
     return this._linkedInUser;
+  }
+
+  logoutFromLinkedIn() {
+    const authtoken = localStorage.getItem('authToken');
+    console.log(authtoken);
+    return this.http.get('/api/linkedIn/logout', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authtoken}`,
+      },
+    });
+  }
+
+  postSimpleShareToLinkedIn(fd: string) {
+    const authtoken = localStorage.getItem('authToken');
+    return this.http.post(
+      '/api/linkedIn/simpleshare',
+      { content: fd },
+      {
+        headers: {
+          Authorization: `Bearer ${authtoken}`,
+        },
+      }
+    );
+  }
+  postMediaToLinkedIn(fd: FormData) {
+    const authtoken = localStorage.getItem('authToken');
+    return this.http.post('/api/linkedIn/shares', fd, {
+      headers: {
+        Authorization: `Bearer ${authtoken}`,
+      },
+    });
   }
 }

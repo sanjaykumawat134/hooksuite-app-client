@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/users.service';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-main',
@@ -52,12 +53,9 @@ export class DashboardMainComponent implements OnInit {
         });
       }
     });
-    this.User = this.userService._linkedInUser;
-    console.log(this.User);
 
-    // const data = this.userService.linkedInProfile();
-    // console.log(data);
-    const token = localStorage.getItem('authToken');
-    console.log(token);
+    this.userService.linkedInProfile().subscribe((user) => {
+      console.log(user);
+    });
   }
 }

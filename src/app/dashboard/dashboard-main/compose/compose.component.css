@@ -1,0 +1,33 @@
+.example-full-width {
+  min-width: 150px;
+
+  width: 100%;
+}
+.col-md-10 {
+  margin: 50px;
+}
+.mat-card-header {
+  padding: 10px;
+  font-size: 2rem;
+}
+
+form {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.file-cancel {
+  color: red;
+  font-weight: 800;
+  position: relative;
+  left: 150px;
+}
+.mat-card {
+  box-shadow: 2px 2px 10px 5px black;
+}
+.btn-wrapper > button {
+  margin: 10px;
+}
+.mat-card-image:first-child {
+  margin-top: 16px;
+}

@@ -1,4 +1,32 @@
-<img
-  src="https://media-exp1.licdn.com/dms/image/C5603AQEKkkD-gc44KA/profile-displayphoto-shrink_200_200/0/1604849614595?e=1634169600&v=beta&t=fEvtJUuFSbItuoyUaaYsF-suWXi08tVMaR-j86T_Tlw"
-  alt=""
-/>
+<div class="container">
+  <div class="row" fxLayout.sm="column">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-md-offset-6 col-sm-12">
+      <mat-card>
+        <mat-card-title>
+          <mat-toolbar>
+            {{ User.firstName }} {{ User.lastName }}</mat-toolbar
+          ></mat-card-title
+        >
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <img src="{{ User.displayImage }}" alt="displayImage" srcset="" />
+          </div>
+          <mat-toolbar>{{ User.email }}</mat-toolbar>
+          <br />
+          <mat-toolbar>LinkedIn Id - {{ User.authProviderUserId }}</mat-toolbar>
+        </mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="end">
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="onLogoutFromLinkedIn()"
+          >
+            Logout
+          </button>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -1,1 +1,107 @@
-<p>compose works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-10">
+          <!-- compose -->
+          <mat-card>
+            <mat-card-header> Create a post </mat-card-header>
+
+            <form
+              [formGroup]="myForm"
+              #contentForm="ngForm"
+              (ngSubmit)="onPublishHandler(contentForm.value)"
+            >
+              <!-- <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Textarea</mat-label>
+                <textarea matInput name="message" ngModel></textarea>
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  type="file"
+                  placeholder="file to upload"
+                  name="file"
+                  ngModel
+                />
+              </mat-form-field> -->
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label> Message </mat-label>
+                <textarea
+                  matInput
+                  placeholder="post content"
+                  ngModel
+                  name="content"
+                  formControlName="content"
+                  required
+                ></textarea>
+              </mat-form-field>
+
+              <div class="form-group">
+                <button
+                  type="button"
+                  mat-mini-fab
+                  color="primary"
+                  (click)="fileInput.click()"
+                >
+                  <mat-icon>attach_file</mat-icon>
+                </button>
+                <input
+                  type="file"
+                  ngModel
+                  class="file-input"
+                  placeholder="files to attach with"
+                  name="file"
+                  formControlName="file"
+                  (change)="onFileChange($event)"
+                  #fileInput
+                  style="display: none"
+                />
+                <button
+                  mat-icon-button
+                  [disabled]="!imgsrc"
+                  (click)="reset()"
+                  class="file-cancel"
+                >
+                  <mat-icon> clear</mat-icon>
+                </button>
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <img mat-card-image [src]="imgsrc" *ngIf="imgsrc" alt="" />
+              </div>
+              <div class="btn-wrapper" fxLayout="row" fxLayoutAlign="end">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  [disabled]="contentForm.form.untouched"
+                >
+                  sechedule
+                </button>
+                <button
+                  type="reset"
+                  mat-raised-button
+                  color="accent"
+                  (click)="reset()"
+                  [disabled]="contentForm.form.untouched"
+                >
+                  reset
+                </button>
+                <button
+                  type="submit"
+                  mat-raised-button
+                  color="warn"
+                  [disabled]="contentForm.form.invalid"
+                >
+                  publish
+                </button>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+        <!-- <div class="col-md-6">
+        
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
